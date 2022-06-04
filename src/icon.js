@@ -1,15 +1,36 @@
-import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
-import { deepOrange, deepPurple } from "@mui/material/colors";
+import React from "react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
-const LetterAvatars = () => {
-  return;
-  <Stack direction="row" spacing={2}>
-    <Avatar>H</Avatar>
-    <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
-    <Avatar sx={{ bgcolor: deepPurple[500] }}>OP</Avatar>
-  </Stack>;
+const SongList = () => {
+  const addSong = (e) => {
+    e.preventDefault();
+    console.log("노래 추가");
+  };
+
+  return (
+    <>
+      <Box component="form" onSubmit={addSong} sx={{ mt: 3 }}>
+        <TextField
+          required
+          autoFocus
+          fullWidth
+          id="songInput"
+          label="노래 제목"
+          name="songInput"
+        />
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{ mt: 2, mb: 3 }}
+        >
+          노래 추가
+        </Button>
+      </Box>
+    </>
+  );
 };
 
-export default LetterAvatars;
+export default SongList;
